@@ -1,0 +1,130 @@
+{% extends 'layout.html' %}
+{% block body %}
+	<div class="row">
+
+	 	<!-- For left column  -->
+
+		<div class="col-md-2 leftColor">
+			<h5 class="text-white ml-3 mt-2" style=""><strong>Flack</strong>
+						
+				<select id="selecT" style="background: none;border:none;color:white;">
+					<option value=""></option>
+					<option value=""></option>
+					<option value=""></option>
+					<option value=""></option>
+				</select>
+				<a href="#">
+				<i class="far fa-bell mt-2" style="color:#ab9ba9;float:right;"></i>
+				</a>
+			</h5>
+			<ul class="" style="">
+				<li class="" style=""><a id="username" href="#" style="text-decoration: none;color:#ab9ba9;">{{ username }}</a></li>
+			</ul>
+			<h6 class="ml-3 pt-1" style="color:#ab9ba9;">
+				<a href="#" style="text-decoration: none;color:#ab9ba9;">Channels<!-- <i class="fas fa-plus-circle" style="color:#ab9ba9; float:right;"></i> --></a><br>
+				<!-- <a href="#" style="text-decoration: none;color:#ab9ba9;"><sapn class="ml-2 pt-1" style=""># General</sapn></a><br> -->
+				<!-- To show the all created channel -->
+				{% for name in result %}
+					<a href="{{ url_for('show_channel',channelName=name.channel_name)}}"  style="text-decoration: none;color:#ab9ba9;"><sapn class="ml-2 pt-1" style=""># {{name.channel_name}}</sapn></a><br>
+				{% endfor %}
+				<!-- end -->
+			</h6>
+			<h6 class="ml-3 pt-3" style="color:#ab9ba9;"><a href="#" style="text-decoration: none;color:#ab9ba9;"><i class="fas fa-plus" style="font-size:13px;"></i><span style="margin-left: 5px;" data-toggle="modal" data-target="#exampleModalCenter">Add a channel</span></a></h6>
+			<h6 class="ml-3 pt-3" style="">
+				<a href="#" style="text-decoration: none;color:#ab9ba9;">Direct Messages<i class="fas fa-plus-circle" style="float:right;"></i><br>
+				<span class="ml-3" style="">{{ username }}</span></a>
+			</h6>
+			<h6 class="ml-3 pt-3" style="color:#ab9ba9;"><a href="#" style="text-decoration: none;color:#ab9ba9;"><i class="fas fa-plus" style="font-size:13px;"></i><span style="margin-left: 5px;">Invite People</span></a></h6>
+			<h6 class="ml-3 pt-3" style="color:#ab9ba9;"><a href="{{url_for('logout')}}" style="text-decoration: none;color:#ab9ba9;"><span style="margin-left: 5px;">Logout</span></a></h6>
+		</div>
+		<!-- code will run after clicking add channel -->
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+			  <div class="modal-dialog modal-dialog-centered" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+
+			        <h5 class="modal-title" id="exampleModalCenterTitle">Create Channel</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      
+			      	<!-- form start -->
+			       <form action="{{url_for('create')}}" method="post" >
+			       	<div class="modal-body">
+			       		<label for="channel">Channel</label>
+			       		<input class="form-control" id="channel" type="text" name="channel" placeholder="Channel">
+			       		<label for="description">Description</label>
+			       		<textarea class="form-control mt-1" id="description" name="description" style="height:150px;">
+
+			       		</textarea>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				        <button type="submit" class="btn btn-primary">Create</button>
+				      </div>
+			      </form>
+			      <!-- form end -->
+			    </div>
+			  </div>
+			</div>
+		<!-- Code end -->
+
+		<!-- For Right column  -->
+
+				<div class="col-md-10 rightcol">
+					<div  class="row">
+						<div class='col-md-4'>
+							<h5 id="cName" class="mt-1" style="float;left;">{{ cName }}</h5>
+							<a href="#" style="color:#302b63;font-size:12px;float:left;"><span class="ml-1">active</span><span class="ml-1">|</span><span class="ml-1">{{ username }}</span></a>
+
+						</div>
+						<div class='col-md-4'>		
+						</div>
+						<div class='col-md-4'>
+							<a href="#"><i onclick="myFunction()" class="fas fa-info-circle mt-3" style="color:#302b63;float:left;"></i></a>
+							
+							<form class="form-inline" style="float:left;">
+								<input class="form-control ml-3 mt-2" type="search" placeholder="search">
+							</form>
+						</div>				
+					</div>
+					<hr class="bg-secondary">
+				<!-- scrolling section -->
+				<div style="width:auto;">
+					<div id="scroll">
+						<!-- description of channel -->
+						<div id="back_color">
+							<p id="description_customize">{{cDescription}}</p> 
+						</div>
+						<div id="message_block">
+							
+						</div>
+						<div id="scroll_description">
+							<strong>{{cName}}</strong><br/>
+							<p>{{cDescription}}</p>
+
+						</div>
+					</div>
+
+
+
+						<!-- Footer input field -->
+						<div class="row">
+							<div class="col-md-12" id="footer" >
+									<button id="send" type="submit" value="SEND" style="font-size:22px;color:#ab9ba9;background:#360033;border-radius:5px";>send</button> 
+									<input id="message" class="form-control" autocomplete="off" placeholder="Send  message" type="text" style="width:75%;float:left;">
+							</div>
+						</div>
+					</div>
+				<!-- end of scrolloing section -->
+				</div>
+			</div>
+<!-- js files -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='index.js') }}"></script>
+<script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
+{% endblock %}

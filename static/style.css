@@ -1,0 +1,103 @@
+.leftColor{
+	background:#360033;
+	height:640px;
+
+}
+.rightcol{
+	height:640px;
+  overflow-x: hidden;
+  overflow-y: scroll; 
+}
+ul {
+  list-style: none; /* Remove default bullets */
+
+}
+
+ul li::before {
+   content: "•";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color:#4e54c8; /* Change the color */
+  font-weight: bold; /* If you want it to be bold */
+  display: inline-block; /* Needed to add space between the bullet and the text */ 
+  width: 1em; /* Also needed for space (tweak if needed) */
+  margin-left: -1em; /* Also needed for space (tweak if needed) */
+  float:left;
+}
+#footer{
+	bottom:0px;
+	position: fixed;
+}
+#back_color{
+    background: #ee9ca7;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #ffdde1, #ee9ca7);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #ffdde1, #ee9ca7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color:#4b134f;
+
+}
+#description_customize{
+  margin:10px;
+
+}
+/*Css for login pag input field*/
+.ipt{
+        outline: none;
+        background: transparent;
+        border:none;
+        border-bottom: 1px solid white;
+        color:white;
+        
+      }
+      .ipt::placeholder{
+        color:white;
+      }
+      /* login block */
+      #login_block{
+        background: #c94b4b;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #4b134f, #c94b4b);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #4b134f, #c94b4b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        height:320px;
+        width:80%;
+        margin-top:170px;
+        border-radius:10px;
+
+      }
+      #login_left{
+        margin-top:160px;
+      }
+      .loginCustom{
+        height:640px;
+      }
+/*css for signup block*/
+#signup_block{
+        background: #c94b4b;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #4b134f, #c94b4b);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #4b134f, #c94b4b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        height:380px;
+        width:80%;
+        margin-top:170px;
+        border-radius:10px;
+
+      }
+      #signup_left{
+        margin-top:160px;
+      }
+      .signupCustom{
+        height:640px;
+      }
+#message_block{
+ background: #abbaab;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to bottom, #ffffff, #abbaab);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom, #ffffff, #abbaab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+border-radius:10px;
+}
+#scroll{
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height:510px;
+}
+#scroll_description{
+  min-width:35%;
+  min-height:400px;
+  background:#ab9ba9;
+  float:right;
+}
+  

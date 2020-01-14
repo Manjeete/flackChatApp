@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+{% block body %}
+		<div class="bg-dark signupCustom">
+			<div class="container-fluid">
+				<div class="row">
+				<!-- left part of the signup page -->
+					<div id="signup_left" class="col-md-8 text-center text-white"><p style="font-size:80px;font-family:Times New Roman;color:#c94b4b">FLACK</p>
+						<h5 style="color:#00b09b">A Platform of communicating people and disccusing the solution of problems </h5>
+						<h6 style="color:#96c93d;">Enjoy the journey Outsourcing</h6>
+					</div>
+				<!-- right part of the singup page signup form  -->
+					<div class="col-md-4 text-white">
+							<div id="signup_block">
+									<form action="/signup" method="POST" class="text-center">
+										<h3 class="">Signup</h3><br>
+										<i class="fas fa-user"></i>
+										<input class="ipt" type="text" name="username" autocomplete="off" placeholder="Username" required=""><br><br>
+										<i class="fas fa-paper-plane"></i>
+										<input class="ipt" type="email" name="email" autocomplete="off" placeholder="Email" required=""><br><br>
+										<i class="fas fa-unlock"></i>
+										<input class="ipt" type="password" name="password" placeholder="Password" required=""><br><br>
+										<i class="fas fa-unlock"></i>
+										<input class="ipt" type="password" name="confirm_password" autocomplete="off" placeholder="Confirm Password" required=""><br><br>
+					<!-- to show the flash message if password != confirm_password -->
+										<h6 class="text-info">
+											{% with messages = get_flashed_messages() %}
+											   {% if messages %}
+											      {% for message in messages %}
+											         {{ message }}
+											      {% endfor %}
+											   {% endif %}
+											{% endwith %}
+										</h6>
+					<!-- end of flash message code -->
+										<input class="btn btn-info" type="submit" name="Submit" style="float:left;margin-left:74px;"><br><br>
+										<h6>Already have an account <a class="text-success" href="/">Login </a>here</h6>
+									</form>
+						  	</div>
+					</div>
+				</div>
+			</div>
+		</div>
+{% endblock %}		
+ 		
