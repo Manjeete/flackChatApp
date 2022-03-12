@@ -18,7 +18,7 @@ lazy-object-proxy==1.4.1
 MarkupSafe==1.1.0
 mccabe==0.6.1
 passlib==1.7.1
-Pillow==6.1.0
+Pillow==9.0.1
 pipenv==2018.11.26
 psycopg2==2.7.7
 pycparser==2.19
